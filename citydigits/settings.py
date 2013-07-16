@@ -1,6 +1,6 @@
 # import the stuff I actually change
-from config import (backend, gis_backend,
-        dbname, dbusername, pw,
+from config import (site, backend, gis_backend,
+        dbname, dbusername, pw, dbhost,
         INSTALLED_APPS, SECRET_KEY,
         MEDIA_ROOT,
         MEDIA_URL,
@@ -10,16 +10,13 @@ from config import (backend, gis_backend,
         ROOT_URLCONF,
         TEMPLATE_DIRS,
         TEMPLATE_CONTEXT_PROCESSORS,
-        site_name,
-	VENV_LIB,
+        ADMINS,
+        VENV_LIB,
         )
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-        ('Benjamin Golder', 'benjamin.j.golder@gmail.com'),
-)
 
 MANAGERS = ADMINS
 
@@ -29,11 +26,10 @@ DATABASES = {
         'NAME': dbname,
         'USER': dbusername,
         'PASSWORD': pw,
-        'HOST': '',
+        'HOST': dbhost,
         'PORT': '',
     }
 }
-
 TIME_ZONE = None
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
@@ -53,7 +49,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-WSGI_APPLICATION = site_name + '.wsgi.application'
+WSGI_APPLICATION = site + '.wsgi.application'
 
 
 LOGGING = {
@@ -79,4 +75,3 @@ LOGGING = {
         },
     }
 }
-
